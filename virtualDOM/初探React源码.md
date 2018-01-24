@@ -1,0 +1,5 @@
+在React源码中，整体的代码结构按照 addons isomorphic renderers shared core test进行组织
+addons:包含一系列的工具方法插件 如 PureRenderMixin CSSTransitionGroup Fragment LinkedStateMixin等
+isomorphic:包含一系列同构方法
+shared:包含一些公用或常用的方法 如Transaction CallbackQueue等
+test:包含一些测试的方法
