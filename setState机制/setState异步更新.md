@@ -1,0 +1,3 @@
+当this.setState()被调用时 React会重新调用render方法来重新绘制UI
+
+setState通过一个队列机制实现state的更新 当执行setState时 会将需要更新的state合并后放入状态队列 而不是立刻更新 队列机制可以高效的批量更新state 如果不通过setState直接修改this.state的值 将不会放入状态队列中 当下次调用setState并对状态队列进行合并时 将会忽略之前的直接被修改的state 而造成无法预知的错误
