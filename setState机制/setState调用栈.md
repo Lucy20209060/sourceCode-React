@@ -8,6 +8,7 @@ class Example extends Component {
         }
     }
     componentDidMount(){
+        
         this.setState({
             val:this.state.val + 1
         })
