@@ -22,3 +22,7 @@ React发现这类操作繁琐冗余 因为这些都是相同的节点 由于委�
         key=b   key=a   key=d   key=c
 
 进行diff差异化对比后 通过key发现新旧集合中的节点都是相同的节点 因此无需进行节点的删除创建 只需要将就集合中节点的位置进行移动 更新为新集合中节点的位置 此时React的diff结果为：B D不做任何操作 A C 进行移动操作即可
+
+如此高效的diff如何运作
+
+首先 对新集合中的节点进行循环遍历 for(name in nextChildren) 通过key判断新旧集合中是否存在相同的节点 if(prevChild === nextChild)如果存在相同的节点则进行移动操作 但在移动前需要将当前节点在旧集合中的位置与lastIndex进行对比
