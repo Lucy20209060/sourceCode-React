@@ -1,0 +1,7 @@
+React是基于组件构建的应用 对于组件间的比较所采用的策略也是非常的简洁高效的
+
+如果是同一类型的组件 按照原策略继续比较Virtual DOM树
+
+如果不是 则将该组件判断为dirty component 从而替代整个组件下的所有子组件
+
+对于同一类型的组件 有可能其Virtual DOM没有任何变化 如果能够确切知道这点 那么就可以节省大量的diff运算时间 因此 React允许用户通过shouldComponentUpdate()来判断该组件是否需要进行diff算法分析
