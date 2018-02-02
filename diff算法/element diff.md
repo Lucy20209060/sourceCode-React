@@ -25,4 +25,4 @@ React发现这类操作繁琐冗余 因为这些都是相同的节点 由于委�
 
 如此高效的diff如何运作
 
-首先 对新集合中的节点进行循环遍历 for(name in nextChildren) 通过key判断新旧集合中是否存在相同的节点 if(prevChild === nextChild)如果存在相同的节点则进行移动操作 但在移动前需要将当前节点在旧集合中的位置与lastIndex进行对比
+首先 对新集合中的节点进行循环遍历 for(name in nextChildren) 通过key判断新旧集合中是否存在相同的节点 if(prevChild === nextChild)如果存在相同的节点则进行移动操作 但在移动前需要将当前节点在旧集合中的位置与lastIndex进行对比 if(child._mountIndex < lastIndex) 否则不执行该操作
