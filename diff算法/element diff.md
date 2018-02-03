@@ -30,3 +30,21 @@ React发现这类操作繁琐冗余 因为这些都是相同的节点 由于委�
 但在移动前需要将当前节点在旧集合中的位置与lastIndex进行对比 if(child._mountIndex < lastIndex) 旧集合中的位置 < 现在的位置 节点往后移动了 否则不执行该操作 这是一种顺序优化手段 lastindex一直在更新 表示访问过的节点在旧集合中最右的位置（即最大的位置） 如果新集合中当前访问的节点比lastIndex大 说明当前访问节点在旧集合中就比上一个节点位置靠后 则该节点不会影响其他节点的位置 因此不需要添加到差异队列中 即不执行移动操作 只有访问的节点比lastIndex小 才需要进行移动操作
 
 从新集合中取得B 然后判断旧集合中是否存在相同节点B 此时发现存在节点B 接着通过对比节点位置判断是否进行移动操作 B在旧集合的位置 B._mountIndex = 1 此时 lastIndex = 0 不满足 child._mountIndex < lastIndex 的条件 因此不对B进行移动操作 更新lastIndex = Math.max(prevChild._mountIndex,lastIndex) 其中prevChild._mountIndex表示B在旧集合中的位置 则lastIndex = 1 并将B的位置更新为新集合的中的位置prevChild._mountIndex = nextIndex 此时新集合中的B._mountIndex = 0,nextIndex++ 进入下一个环节判断
+
+......
+
+上面主要分析新旧节点集合存在相同节点但位置不同时 对节点进行位置的移动情况
+
+如果有新节点的加入且旧集合存在需要删除的节点
+
+    旧   A       B       C       D
+        key=a   key=b   key=c   key=d
+
+    新   B       E       C       A
+        key=b   key=e   key=c   key=a
+
+        创建，移动，删除节点
+
+从新集合中取得B 然后判断旧集合中存在是否有相同元素B 发现存在节点B 由于B在旧集合中的位置B._mountIndex = 1 此时lastIndex = 0 因此不对B进行移动操作 更新lastIndex = 1 并将B的位置更新为新集合中的位置B._mountIndex = 0 nextIndex++ 进入下一个节点的判断
+
+从新集合取得E 然后判断旧集合是否存在相同节点E 
