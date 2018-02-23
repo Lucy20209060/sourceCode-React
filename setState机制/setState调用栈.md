@@ -61,7 +61,7 @@ class Example extends Component {
 
 
 enqueueUpdate 的代码如下
-
+```javascript
 function enqueueUpdate(component){
     ensureInjected();
     // 如果不处于批量更新模式
@@ -72,5 +72,7 @@ function enqueueUpdate(component){
     // 如果处于批量更新模式 则将组件保存在 dirtyComponents中
     dirtyComponents.push(component);
 }   
-
-如果 isBatchingUpdates 为true 则对队列中的更新执行 batchedUpdates 方法 否则只把当前的组件（即调用了setState的组件）放入dirtyComponents数组中 例子中4次setState调用的变现之所以不同 这里逻辑判断起了关键作用
+```
+如果 isBatchingUpdates 为true 则对队列中的更新执行 batchedUpdates 方法 
+否则只把当前的组件（即调用了setState的组件）放入dirtyComponents数组中 
+例子中4次setState调用的变现之所以不同 这里逻辑判断起了关键作用
