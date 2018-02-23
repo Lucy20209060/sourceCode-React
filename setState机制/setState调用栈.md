@@ -1,3 +1,4 @@
+```react
 import React,{Component} from 'react';
 
 class Example extends Component {
@@ -33,8 +34,7 @@ class Example extends Component {
     }
 
 }  
-
-
+```
 
 
                             this.setState()
