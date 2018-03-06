@@ -1,6 +1,6 @@
 Virtual DOM模型几乎涵盖了所有的原生DOM标签 如 `<div>` `<p>` `<span>`等 
 
-使用React时 此时的<div>并不是原生的<div>标签 是React生成的Virtual DOM对象 只不过标签名称相同罢了 
+使用React时 此时的`<div>`并不是原生的`<div>`标签 是React生成的Virtual DOM对象 只不过标签名称相同罢了 
     
 React大部分工作都是在Virtual DOM中完成的 不直接操作和污染原生DOM 保持了性能上的高效和稳定 降低了直接操作原生DOM而导致的错误风险
 
