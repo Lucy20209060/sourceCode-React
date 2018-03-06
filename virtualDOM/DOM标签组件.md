@@ -1,4 +1,4 @@
-Virtual DOM模型几乎涵盖了所有的原生DOM标签 如 <div> <p> <span>等 
+Virtual DOM模型几乎涵盖了所有的原生DOM标签 如 `<div>` `<p>` `<span>`等 
 
 使用React时 此时的<div>并不是原生的<div>标签 是React生成的Virtual DOM对象 只不过标签名称相同罢了 
     
