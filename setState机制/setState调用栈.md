@@ -53,14 +53,15 @@ class Example extends Component {
                             ||              ||
                             || Y            || N
                             \/              \/
-                        将组件保存到        遍历dirtyComponrnts
-                    dirtyComponents        调用updateComponent
-                                           更新pending state or props
+                       将组件保存到       遍历dirtyComponrnts
+                    dirtyComponents      调用updateComponent
+                                         更新pending state or props
 
                                 setState简化调用栈    
 
 
 enqueueUpdate 的代码如下
+
 ```javascript
 function enqueueUpdate(component){
     ensureInjected();
@@ -74,5 +75,7 @@ function enqueueUpdate(component){
 }   
 ```
 如果 isBatchingUpdates 为true 则对队列中的更新执行 batchedUpdates 方法 
+
 否则只把当前的组件（即调用了setState的组件）放入dirtyComponents数组中 
+
 例子中4次setState调用的实现之所以不同 这里逻辑判断起了关键作用
